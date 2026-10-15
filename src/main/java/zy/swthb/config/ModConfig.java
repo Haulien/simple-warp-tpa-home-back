@@ -63,6 +63,9 @@ public class ModConfig {
     private Map<String, List<HomeEntry>> homes = new HashMap<>();
     private Map<String, WarpEntry> warps = new HashMap<>();
 
+    /** Player UUID → name of their default home (used by /home with no name) */
+    private Map<String, String> defaultHomes = new HashMap<>();
+
     public MinecraftServer getServer() {
         return server;
     }
@@ -148,6 +151,7 @@ public class ModConfig {
                 config.backEnabled = data.backEnabled;
                 config.homes = data.homes != null ? data.homes : new HashMap<>();
                 config.warps = data.warps != null ? data.warps : new HashMap<>();
+                config.defaultHomes = data.defaultHomes != null ? data.defaultHomes : new HashMap<>();
                 LOGGER.info("存档数据已加载: {}", config.dataFile);
             }
         } catch (Exception e) {
@@ -174,6 +178,7 @@ public class ModConfig {
                 data.backEnabled = this.backEnabled;
                 data.homes = this.homes;
                 data.warps = this.warps;
+                data.defaultHomes = this.defaultHomes;
                 GSON.toJson(data, writer);
                 writer.flush();
             }
@@ -197,6 +202,7 @@ public class ModConfig {
         boolean backEnabled = false;
         Map<String, List<HomeEntry>> homes = new HashMap<>();
         Map<String, WarpEntry> warps = new HashMap<>();
+        Map<String, String> defaultHomes = new HashMap<>();
     }
 
     // ---------- Homes 方法 ----------
@@ -253,6 +259,8 @@ public class ModConfig {
         }
 
         list.add(entry);
+        // A player's first home becomes their default automatically
+        defaultHomes.putIfAbsent(key, entry.getName());
         save();
     }
 
@@ -263,12 +271,28 @@ public class ModConfig {
 
         boolean removed = list.removeIf(h -> h.getName().equals(name));
         if (removed) {
+            if (name.equals(defaultHomes.get(key))) {
+                defaultHomes.remove(key);
+            }
             if (list.isEmpty()) {
                 homes.remove(key);
             }
             save();
         }
         return removed;
+    }
+
+    // ---------- Default home ----------
+
+    /** Name of the player's default home, or null if none is set (or it no longer exists). */
+    public String getDefaultHome(UUID playerUuid) {
+        String name = defaultHomes.get(playerUuid.toString());
+        return name != null && homeExists(playerUuid, name) ? name : null;
+    }
+
+    public void setDefaultHome(UUID playerUuid, String name) {
+        defaultHomes.put(playerUuid.toString(), name);
+        save();
     }
 
     // ---------- 传送倒计时 ----------

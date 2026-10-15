@@ -58,5 +58,10 @@
   
   "swthb.dim.overworld": "オーバーワールド",
   "swthb.dim.nether": "ネザー",
-  "swthb.dim.end": "エンド"
+  "swthb.dim.end": "エンド",
+  "swthb.home.default_set": "デフォルトのホームを \"%s\" に設定しました",
+  "swthb.home.default_current": "デフォルトのホームは \"%s\" です",
+  "swthb.home.default_none": "デフォルトのホームが未設定です。/defaulthome <名前> で設定してください",
+  "swthb.home.no_default": "ホームが複数ありデフォルトが未設定です。/defaulthome <名前> で設定するか /home <名前> を使用してください",
+  "swthb.home.default_tag": " ★ デフォルト"
 }

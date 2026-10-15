@@ -17,7 +17,9 @@
 | | `/tpay` | 所有人 | 接受传送请求 |
 | | `/tpan` | 所有人 | 拒绝传送请求 |
 | **Home** | `/sethome <名称>` | 所有人 | 在当前位置设置家（支持中文名） |
+| | `/home` | 所有人 | 传送到默认家（只有一个家时直接传送） |
 | | `/home <名称>` | 所有人 | 传送到指定的家 |
+| | `/defaulthome [名称]` | 所有人 | 查看或设置默认家（第一个家自动成为默认家） |
 | | `/homes` | 所有人 | 列出所有家（可点击传送） |
 | | `/delhome <名称>` | 所有人 | 删除一个家 |
 | **Warp** | `/warp <名称>` | 所有人 | 传送到指定传送点 |
@@ -134,7 +136,9 @@ No pop-up windows, no required dependencies, fully localized translations! Insta
 | | `/tpay` | All Players | Accept an incoming teleport request |
 | | `/tpan` | All Players | Decline an incoming teleport request |
 | **Home** | `/sethome <name>` | All Players | Set a home at your current position |
+| | `/home` | All Players | Teleport to your default home (or your only home) |
 | | `/home <name>` | All Players | Teleport to the specified home |
+| | `/defaulthome [name]` | All Players | Show or set your default home (your first home becomes the default automatically) |
 | | `/homes` | All Players | List all your homes (clickable for instant teleport) |
 | | `/delhome <name>` | All Players | Delete a specific home |
 | **Warp** | `/warp <name>` | All Players | Teleport to the specified public warp |

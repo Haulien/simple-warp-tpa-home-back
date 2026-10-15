@@ -58,5 +58,10 @@
   
   "swthb.dim.overworld": "العالم العلوي",
   "swthb.dim.nether": "السفلى",
-  "swthb.dim.end": "النهاية"
+  "swthb.dim.end": "النهاية",
+  "swthb.home.default_set": "تم تعيين المنزل الافتراضي إلى \"%s\"",
+  "swthb.home.default_current": "منزلك الافتراضي هو \"%s\"",
+  "swthb.home.default_none": "لم يتم تعيين منزل افتراضي. استخدم /defaulthome <الاسم> لاختيار واحد",
+  "swthb.home.no_default": "لديك أكثر من منزل ولا يوجد منزل افتراضي. استخدم /defaulthome <الاسم> أو /home <الاسم>",
+  "swthb.home.default_tag": " ★ افتراضي"
 }
