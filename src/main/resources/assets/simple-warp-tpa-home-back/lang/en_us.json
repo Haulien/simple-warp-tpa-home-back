@@ -63,5 +63,15 @@
   "swthb.home.default_current": "Your default home is \"%s\"",
   "swthb.home.default_none": "No default home set. Use /defaulthome <name> to choose one",
   "swthb.home.no_default": "You have more than one home and no default. Use /defaulthome <name> to choose one, or /home <name>",
-  "swthb.home.default_tag": " ★ default"
+  "swthb.home.default_tag": " ★ default",
+
+  "swthb.tpa.unknown_player": "an offline player",
+  "swthb.log.initialized": "Simple Warp TPA Home Back initialized!",
+  "swthb.log.world_data_loaded": "World data loaded",
+  "swthb.log.world_data_saved": "World data saved",
+  "swthb.log.data_missing": "No world data found, creating a new file with default settings",
+  "swthb.log.data_loaded_from": "World data loaded from %s",
+  "swthb.log.load_failed": "Failed to load world data, using default settings: %s",
+  "swthb.log.no_data_file": "No data file path set, unable to save",
+  "swthb.log.save_failed": "Failed to save world data: %s"
 }

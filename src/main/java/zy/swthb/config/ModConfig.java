@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.storage.LevelResource;
+import zy.swthb.lang.ModLang;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -136,7 +137,7 @@ public class ModConfig {
                 .resolve("data.json");
 
         if (!Files.exists(config.dataFile)) {
-            LOGGER.info("存档数据不存在，将使用默认设置创建新文件");
+            LOGGER.info(ModLang.server("swthb.log.data_missing"));
             config.save();
             return;
         }
@@ -152,10 +153,10 @@ public class ModConfig {
                 config.homes = data.homes != null ? data.homes : new HashMap<>();
                 config.warps = data.warps != null ? data.warps : new HashMap<>();
                 config.defaultHomes = data.defaultHomes != null ? data.defaultHomes : new HashMap<>();
-                LOGGER.info("存档数据已加载: {}", config.dataFile);
+                LOGGER.info(ModLang.server("swthb.log.data_loaded_from", config.dataFile));
             }
         } catch (Exception e) {
-            LOGGER.error("加载存档数据失败，将使用默认设置: {}", e.getMessage());
+            LOGGER.error(ModLang.server("swthb.log.load_failed", e.getMessage()));
         }
     }
 
@@ -164,7 +165,7 @@ public class ModConfig {
      */
     public void save() {
         if (dataFile == null) {
-            LOGGER.warn("未设置数据文件路径，无法保存");
+            LOGGER.warn(ModLang.server("swthb.log.no_data_file"));
             return;
         }
         try {
@@ -183,7 +184,7 @@ public class ModConfig {
                 writer.flush();
             }
         } catch (Exception e) {
-            LOGGER.error("保存存档数据失败: {}", e.getMessage());
+            LOGGER.error(ModLang.server("swthb.log.save_failed", e.getMessage()));
         }
     }
 

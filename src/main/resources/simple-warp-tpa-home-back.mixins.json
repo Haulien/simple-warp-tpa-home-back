@@ -3,7 +3,9 @@
 	"package": "zy.swthb.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"DeathMixin"
+		"ConsoleMessageLangMixin",
+		"DeathMixin",
+		"PlayerMessageLangMixin"
 	],
 	"client": [
 		"ChatAutoCloseMixin"

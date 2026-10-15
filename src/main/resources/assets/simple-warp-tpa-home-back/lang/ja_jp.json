@@ -63,5 +63,15 @@
   "swthb.home.default_current": "デフォルトのホームは \"%s\" です",
   "swthb.home.default_none": "デフォルトのホームが未設定です。/defaulthome <名前> で設定してください",
   "swthb.home.no_default": "ホームが複数ありデフォルトが未設定です。/defaulthome <名前> で設定するか /home <名前> を使用してください",
-  "swthb.home.default_tag": " ★ デフォルト"
+  "swthb.home.default_tag": " ★ デフォルト",
+
+  "swthb.tpa.unknown_player": "オフラインのプレイヤー",
+  "swthb.log.initialized": "Simple Warp TPA Home Back を初期化しました！",
+  "swthb.log.world_data_loaded": "ワールドデータを読み込みました",
+  "swthb.log.world_data_saved": "ワールドデータを保存しました",
+  "swthb.log.data_missing": "ワールドデータが見つかりません。デフォルト設定で新しいファイルを作成します",
+  "swthb.log.data_loaded_from": "ワールドデータを読み込みました: %s",
+  "swthb.log.load_failed": "ワールドデータの読み込みに失敗しました。デフォルト設定を使用します: %s",
+  "swthb.log.no_data_file": "データファイルのパスが未設定のため保存できません",
+  "swthb.log.save_failed": "ワールドデータの保存に失敗しました: %s"
 }

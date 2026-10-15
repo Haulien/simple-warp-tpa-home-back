@@ -63,5 +63,15 @@
   "swthb.home.default_current": "منزلك الافتراضي هو \"%s\"",
   "swthb.home.default_none": "لم يتم تعيين منزل افتراضي. استخدم /defaulthome <الاسم> لاختيار واحد",
   "swthb.home.no_default": "لديك أكثر من منزل ولا يوجد منزل افتراضي. استخدم /defaulthome <الاسم> أو /home <الاسم>",
-  "swthb.home.default_tag": " ★ افتراضي"
+  "swthb.home.default_tag": " ★ افتراضي",
+
+  "swthb.tpa.unknown_player": "لاعب غير متصل",
+  "swthb.log.initialized": "تمت تهيئة Simple Warp TPA Home Back!",
+  "swthb.log.world_data_loaded": "تم تحميل بيانات العالم",
+  "swthb.log.world_data_saved": "تم حفظ بيانات العالم",
+  "swthb.log.data_missing": "لم يتم العثور على بيانات العالم، سيتم إنشاء ملف جديد بالإعدادات الافتراضية",
+  "swthb.log.data_loaded_from": "تم تحميل بيانات العالم من %s",
+  "swthb.log.load_failed": "فشل تحميل بيانات العالم، سيتم استخدام الإعدادات الافتراضية: %s",
+  "swthb.log.no_data_file": "لم يتم تعيين مسار ملف البيانات، تعذر الحفظ",
+  "swthb.log.save_failed": "فشل حفظ بيانات العالم: %s"
 }

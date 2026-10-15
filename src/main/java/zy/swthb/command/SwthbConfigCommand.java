@@ -62,8 +62,7 @@ public class SwthbConfigCommand {
         config.setMaxHomes(amount);
 
         source.sendSuccess(() ->
-                Component.translatableWithFallback("swthb.config.max_homes_set",
-                                "已将每名玩家最大家的数量从 %s 修改为 %s",
+                Component.translatable("swthb.config.max_homes_set",
                                 String.valueOf(oldValue), String.valueOf(amount))
                         .withStyle(ChatFormatting.GREEN),
                 true
@@ -81,8 +80,7 @@ public class SwthbConfigCommand {
         config.setMaxWarps(amount);
 
         source.sendSuccess(() ->
-                Component.translatableWithFallback("swthb.config.max_warps_set",
-                                "已将 Warp 最大数量从 %s 修改为 %s",
+                Component.translatable("swthb.config.max_warps_set",
                                 String.valueOf(oldValue), String.valueOf(amount))
                         .withStyle(ChatFormatting.GREEN),
                 true
@@ -100,8 +98,7 @@ public class SwthbConfigCommand {
         config.setTeleportDelay(seconds);
 
         source.sendSuccess(() ->
-                        Component.translatableWithFallback("swthb.config.teleport_delay_set",
-                                        "已将传送倒计时从 %s 秒修改为 %s 秒",
+                        Component.translatable("swthb.config.teleport_delay_set",
                                         String.valueOf(oldValue), String.valueOf(seconds))
                                 .withStyle(ChatFormatting.GREEN),
                 true
@@ -119,11 +116,9 @@ public class SwthbConfigCommand {
 
         Supplier<Component> msg;
         if (enabled) {
-            msg = () -> Component.translatableWithFallback("swthb.config.back_enabled",
-                            "已开启 /back 返回功能").withStyle(ChatFormatting.GREEN);
+            msg = () -> Component.translatable("swthb.config.back_enabled").withStyle(ChatFormatting.GREEN);
         } else {
-            msg = () -> Component.translatableWithFallback("swthb.config.back_disabled",
-                            "已关闭 /back 返回功能").withStyle(ChatFormatting.RED);
+            msg = () -> Component.translatable("swthb.config.back_disabled").withStyle(ChatFormatting.RED);
         }
         source.sendSuccess(msg, true);
 
@@ -138,11 +133,9 @@ public class SwthbConfigCommand {
 
         Supplier<Component> msg;
         if (enabled) {
-            msg = () -> Component.translatableWithFallback("swthb.config.teleport_effects_enabled",
-                            "已开启传送粒子效果").withStyle(ChatFormatting.GREEN);
+            msg = () -> Component.translatable("swthb.config.teleport_effects_enabled").withStyle(ChatFormatting.GREEN);
         } else {
-            msg = () -> Component.translatableWithFallback("swthb.config.teleport_effects_disabled",
-                            "已关闭传送粒子效果").withStyle(ChatFormatting.RED);
+            msg = () -> Component.translatable("swthb.config.teleport_effects_disabled").withStyle(ChatFormatting.RED);
         }
         source.sendSuccess(msg, true);
 
@@ -155,8 +148,7 @@ public class SwthbConfigCommand {
         ModConfig.load(source.getServer());
 
         source.sendSuccess(() ->
-                Component.translatableWithFallback("swthb.config.reloaded",
-                        "配置文件已从磁盘重新加载").withStyle(ChatFormatting.GREEN),
+                Component.translatable("swthb.config.reloaded").withStyle(ChatFormatting.GREEN),
                 true
         );
 
@@ -169,8 +161,7 @@ public class SwthbConfigCommand {
         ModConfig.getInstance().save();
 
         source.sendSuccess(() ->
-                Component.translatableWithFallback("swthb.config.saved",
-                        "配置文件已保存到磁盘").withStyle(ChatFormatting.GREEN),
+                Component.translatable("swthb.config.saved").withStyle(ChatFormatting.GREEN),
                 true
         );
 

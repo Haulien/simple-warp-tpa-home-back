@@ -63,5 +63,15 @@
   "swthb.home.default_current": "Ваш дом по умолчанию: \"%s\"",
   "swthb.home.default_none": "Дом по умолчанию не задан. Используйте /defaulthome <имя>",
   "swthb.home.no_default": "У вас несколько домов и нет дома по умолчанию. Используйте /defaulthome <имя> или /home <имя>",
-  "swthb.home.default_tag": " ★ по умолчанию"
+  "swthb.home.default_tag": " ★ по умолчанию",
+
+  "swthb.tpa.unknown_player": "не в сети",
+  "swthb.log.initialized": "Simple Warp TPA Home Back инициализирован!",
+  "swthb.log.world_data_loaded": "Данные мира загружены",
+  "swthb.log.world_data_saved": "Данные мира сохранены",
+  "swthb.log.data_missing": "Данные мира не найдены, создаётся новый файл с настройками по умолчанию",
+  "swthb.log.data_loaded_from": "Данные мира загружены из %s",
+  "swthb.log.load_failed": "Не удалось загрузить данные мира, используются настройки по умолчанию: %s",
+  "swthb.log.no_data_file": "Путь к файлу данных не задан, сохранение невозможно",
+  "swthb.log.save_failed": "Не удалось сохранить данные мира: %s"
 }

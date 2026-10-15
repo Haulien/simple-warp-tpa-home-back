@@ -63,5 +63,15 @@
   "swthb.home.default_current": "你的默认家是 \"%s\"",
   "swthb.home.default_none": "尚未设置默认家，使用 /defaulthome <名称> 来设置",
   "swthb.home.no_default": "你有多个家但未设置默认家。使用 /defaulthome <名称> 设置，或使用 /home <名称>",
-  "swthb.home.default_tag": " ★ 默认"
+  "swthb.home.default_tag": " ★ 默认",
+
+  "swthb.tpa.unknown_player": "该玩家",
+  "swthb.log.initialized": "Simple Warp TPA Home Back 已初始化！",
+  "swthb.log.world_data_loaded": "存档数据已加载",
+  "swthb.log.world_data_saved": "存档数据已保存",
+  "swthb.log.data_missing": "存档数据不存在，将使用默认设置创建新文件",
+  "swthb.log.data_loaded_from": "存档数据已加载: %s",
+  "swthb.log.load_failed": "加载存档数据失败，将使用默认设置: %s",
+  "swthb.log.no_data_file": "未设置数据文件路径，无法保存",
+  "swthb.log.save_failed": "保存存档数据失败: %s"
 }

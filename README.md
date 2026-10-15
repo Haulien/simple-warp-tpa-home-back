@@ -113,7 +113,9 @@
 内置简体中文、繁體中文、英文、西班牙文、印地語、阿拉伯語、法文、日文、俄文语言文件。
 
 - 客户端装有 mod → 根据客户端语言显示翻译
-- 客户端未装 mod → 显示简体中文
+- 客户端未装 mod → 服务端按玩家客户端设置的语言发送翻译
+- 没有该语言时依次回退：相近的地区变体（如 en_au → en_gb，zh_hk ↔ zh_tw）→ 同语言的主要变体（如 es_mx → es_es）→ 服务器语言 → 英文（en_us）
+- 服务器控制台和日志使用服务器语言，默认取自系统区域设置，可用 JVM 参数 `-Dswthb.language=zh_cn` 指定
 
 欢迎提交添加更多语言。
 
@@ -232,6 +234,8 @@ All data is stored in `saves/<save>/data/simple-warp-tpa-home-back/data.json`:
 Built-in language files: Simplified Chinese, Traditional Chinese, English, Spanish, Hindi, Arabic, French, Japanese, and Russian.
 
 - If the client has this mod installed: text displays according to the client's game language setting
-- If the client does not have this mod installed: text defaults to Simplified Chinese
+- If the client does not have this mod installed: the server sends text in the language the player's game is set to
+- If that language isn't available, it falls back to a close regional variant (e.g. en_au → en_gb, zh_hk ↔ zh_tw), then the main variant of the same language (e.g. es_mx → es_es), then the server language, then English (en_us)
+- The server console and logs use the server language, taken from the system locale by default; override it with the JVM argument `-Dswthb.language=zh_cn`
 
 Contributions for additional translations are welcome.

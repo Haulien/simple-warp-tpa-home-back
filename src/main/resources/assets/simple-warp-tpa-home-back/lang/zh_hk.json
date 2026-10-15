@@ -61,5 +61,17 @@
   "swthb.home.default_current": "你的預設家是 \"%s\"",
   "swthb.home.default_none": "尚未設定預設家，使用 /defaulthome <名稱> 來設定",
   "swthb.home.no_default": "你有多個家但未設定預設家。使用 /defaulthome <名稱> 設定，或使用 /home <名稱>",
-  "swthb.home.default_tag": " ★ 預設"
+  "swthb.home.default_tag": " ★ 預設",
+
+  "swthb.tpa.unknown_player": "該玩家",
+  "swthb.log.initialized": "Simple Warp TPA Home Back 已初始化！",
+  "swthb.log.world_data_loaded": "存檔資料已載入",
+  "swthb.log.world_data_saved": "存檔資料已儲存",
+  "swthb.log.data_missing": "存檔資料不存在，將使用預設設定建立新檔案",
+  "swthb.log.data_loaded_from": "存檔資料已載入: %s",
+  "swthb.log.load_failed": "載入存檔資料失敗，將使用預設設定: %s",
+  "swthb.log.no_data_file": "未設定資料檔案路徑，無法儲存",
+  "swthb.log.save_failed": "儲存存檔資料失敗: %s",
+  "swthb.config.teleport_effects_enabled": "已開啟傳送粒子效果",
+  "swthb.config.teleport_effects_disabled": "已關閉傳送粒子效果"
 }
