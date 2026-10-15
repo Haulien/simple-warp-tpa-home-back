@@ -58,5 +58,10 @@
   
   "swthb.dim.overworld": "主世界",
   "swthb.dim.nether": "下界",
-  "swthb.dim.end": "末地"
+  "swthb.dim.end": "末地",
+  "swthb.home.default_set": "已將預設家設定為 \"%s\"",
+  "swthb.home.default_current": "你的預設家是 \"%s\"",
+  "swthb.home.default_none": "尚未設定預設家，使用 /defaulthome <名稱> 來設定",
+  "swthb.home.no_default": "你有多個家但未設定預設家。使用 /defaulthome <名稱> 設定，或使用 /home <名稱>",
+  "swthb.home.default_tag": " ★ 預設"
 }

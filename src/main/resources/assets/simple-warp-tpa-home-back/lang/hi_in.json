@@ -58,5 +58,10 @@
   
   "swthb.dim.overworld": "ओवरवर्ल्ड",
   "swthb.dim.nether": "नेदर",
-  "swthb.dim.end": "एंड"
+  "swthb.dim.end": "एंड",
+  "swthb.home.default_set": "डिफ़ॉल्ट घर \"%s\" पर सेट किया गया",
+  "swthb.home.default_current": "आपका डिफ़ॉल्ट घर \"%s\" है",
+  "swthb.home.default_none": "कोई डिफ़ॉल्ट घर सेट नहीं है। चुनने के लिए /defaulthome <नाम> का उपयोग करें",
+  "swthb.home.no_default": "आपके कई घर हैं और कोई डिफ़ॉल्ट नहीं है। /defaulthome <नाम> या /home <नाम> का उपयोग करें",
+  "swthb.home.default_tag": " ★ डिफ़ॉल्ट"
 }

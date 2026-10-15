@@ -58,5 +58,10 @@
   
   "swthb.dim.overworld": "Mundo Superior",
   "swthb.dim.nether": "Nether",
-  "swthb.dim.end": "End"
+  "swthb.dim.end": "End",
+  "swthb.home.default_set": "Hogar predeterminado establecido en \"%s\"",
+  "swthb.home.default_current": "Tu hogar predeterminado es \"%s\"",
+  "swthb.home.default_none": "No hay hogar predeterminado. Usa /defaulthome <nombre> para elegir uno",
+  "swthb.home.no_default": "Tienes varios hogares y ninguno predeterminado. Usa /defaulthome <nombre> o /home <nombre>",
+  "swthb.home.default_tag": " ★ predeterminado"
 }

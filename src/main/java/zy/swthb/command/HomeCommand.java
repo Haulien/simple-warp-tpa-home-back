@@ -13,6 +13,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -32,10 +33,19 @@ public class HomeCommand {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         // /home <名称>
+        // /home (no name) → default home
         dispatcher.register(Commands.literal("home")
+                .executes(HomeCommand::executeDefaultHome)
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(HomeCommand::suggestHomes)
                         .executes(HomeCommand::executeHome)));
+
+        // /defaulthome → show current default; /defaulthome <name> → set it
+        dispatcher.register(Commands.literal("defaulthome")
+                .executes(HomeCommand::executeShowDefaultHome)
+                .then(Commands.argument("name", StringArgumentType.greedyString())
+                        .suggests(HomeCommand::suggestHomes)
+                        .executes(HomeCommand::executeSetDefaultHome)));
 
         // /homes
         dispatcher.register(Commands.literal("homes")
@@ -60,7 +70,74 @@ public class HomeCommand {
         CommandSourceStack source = ctx.getSource();
         ServerPlayer player = source.getPlayerOrException();
         String name = StringArgumentType.getString(ctx, "name");
+        return teleportHome(source, player, name);
+    }
 
+    // ========== /home (default) ==========
+
+    private static int executeDefaultHome(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
+        CommandSourceStack source = ctx.getSource();
+        ServerPlayer player = source.getPlayerOrException();
+        ModConfig config = ModConfig.getInstance();
+
+        String name = config.getDefaultHome(player.getUUID());
+        if (name == null) {
+            List<ModConfig.HomeEntry> homes = config.getHomes(player.getUUID());
+            if (homes.isEmpty()) {
+                source.sendFailure(Component.translatableWithFallback("swthb.home.empty",
+                        "No homes set yet, use /sethome <name> to create one")
+                        .withStyle(ChatFormatting.RED));
+                return 0;
+            }
+            if (homes.size() > 1) {
+                source.sendFailure(Component.translatableWithFallback("swthb.home.no_default",
+                        "You have more than one home and no default. Use /defaulthome <name> to choose one, or /home <name>")
+                        .withStyle(ChatFormatting.RED));
+                return 0;
+            }
+            // Exactly one home: use it
+            name = homes.getFirst().getName();
+        }
+        return teleportHome(source, player, name);
+    }
+
+    // ========== /defaulthome ==========
+
+    private static int executeShowDefaultHome(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
+        CommandSourceStack source = ctx.getSource();
+        ServerPlayer player = source.getPlayerOrException();
+        String name = ModConfig.getInstance().getDefaultHome(player.getUUID());
+        if (name == null) {
+            source.sendFailure(Component.translatableWithFallback("swthb.home.default_none",
+                    "No default home set. Use /defaulthome <name> to choose one")
+                    .withStyle(ChatFormatting.RED));
+            return 0;
+        }
+        player.sendSystemMessage(Component.translatableWithFallback("swthb.home.default_current",
+                "Your default home is \"%s\"", name).withStyle(ChatFormatting.GREEN));
+        return 1;
+    }
+
+    private static int executeSetDefaultHome(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
+        CommandSourceStack source = ctx.getSource();
+        ServerPlayer player = source.getPlayerOrException();
+        String name = StringArgumentType.getString(ctx, "name");
+        ModConfig config = ModConfig.getInstance();
+
+        if (!config.homeExists(player.getUUID(), name)) {
+            source.sendFailure(Component.translatableWithFallback("swthb.home.not_found",
+                    "Home named \"%s\" not found", name).withStyle(ChatFormatting.RED));
+            return 0;
+        }
+        config.setDefaultHome(player.getUUID(), name);
+        player.sendSystemMessage(Component.translatableWithFallback("swthb.home.default_set",
+                "Default home set to \"%s\"", name).withStyle(ChatFormatting.GREEN));
+        return 1;
+    }
+
+    // ========== shared teleport ==========
+
+    private static int teleportHome(CommandSourceStack source, ServerPlayer player, String name) {
         ModConfig config = ModConfig.getInstance();
         ModConfig.HomeEntry home = config.getHome(player.getUUID(), name);
 
@@ -133,8 +210,10 @@ public class HomeCommand {
             return 1;
         }
 
+        String defaultName = config.getDefaultHome(player.getUUID());
         for (int i = 0; i < homes.size(); i++) {
             ModConfig.HomeEntry h = homes.get(i);
+            boolean isDefault = h.getName().equals(defaultName);
             Component dimDisplay = DimensionDisplay.of(h.getWorld());
 
             Component nameComp = Component.literal((i + 1) + ". " + h.getName())
@@ -152,7 +231,11 @@ public class HomeCommand {
                     .append(Component.literal(String.format("%.0f, %.0f, %.0f", h.getX(), h.getY(), h.getZ()))
                             .withStyle(ChatFormatting.DARK_GRAY));
 
-            player.sendSystemMessage(Component.literal("").append(nameComp).append(infoComp));
+            MutableComponent line = Component.literal("").append(nameComp);
+            if (isDefault) {
+                line.append(Component.translatableWithFallback("swthb.home.default_tag", " ★ default").withStyle(ChatFormatting.YELLOW));
+            }
+            player.sendSystemMessage(line.append(infoComp));
         }
 
         return 1;

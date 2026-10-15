@@ -58,5 +58,10 @@
   
   "swthb.dim.overworld": "Overworld",
   "swthb.dim.nether": "Nether",
-  "swthb.dim.end": "End"
+  "swthb.dim.end": "End",
+  "swthb.home.default_set": "Default home set to \"%s\"",
+  "swthb.home.default_current": "Your default home is \"%s\"",
+  "swthb.home.default_none": "No default home set. Use /defaulthome <name> to choose one",
+  "swthb.home.no_default": "You have more than one home and no default. Use /defaulthome <name> to choose one, or /home <name>",
+  "swthb.home.default_tag": " ★ default"
 }
