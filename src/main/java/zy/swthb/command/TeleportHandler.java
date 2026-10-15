@@ -80,8 +80,7 @@ public class TeleportHandler {
 
         // 发送初始倒计时提示（动作栏）
         player.sendOverlayMessage(
-                Component.translatableWithFallback("swthb.teleport.countdown",
-                        "传送倒计时：%s 秒...", String.valueOf(delay))
+                Component.translatable("swthb.teleport.countdown", String.valueOf(delay))
                         .withStyle(ChatFormatting.YELLOW)
         );
     }
@@ -149,8 +148,7 @@ public class TeleportHandler {
                 it.remove();
                 task.player().sendOverlayMessage(Component.literal("")); // 清空动作栏
                 task.player().sendSystemMessage(
-                        Component.translatableWithFallback("swthb.teleport.cancelled_move",
-                                "§c传送已取消，因为你移动了")
+                        Component.translatable("swthb.teleport.cancelled_move")
                 );
                 if (task.onCancel() != null) task.onCancel().run();
                 continue;
@@ -176,8 +174,7 @@ public class TeleportHandler {
                 if (remaining % 20 == 0) {
                     int seconds = remaining / 20;
                     task.player().sendOverlayMessage(
-                            Component.translatableWithFallback("swthb.teleport.countdown",
-                                    "传送倒计时：%s 秒...", String.valueOf(seconds))
+                            Component.translatable("swthb.teleport.countdown", String.valueOf(seconds))
                                     .withStyle(ChatFormatting.YELLOW)
                     );
                 }

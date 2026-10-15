@@ -35,16 +35,14 @@ public class BackCommand {
 
         // 检查功能是否开启
         if (!ModConfig.getInstance().isBackEnabled()) {
-            source.sendFailure(Component.translatableWithFallback(
-                    "swthb.back.disabled", "返回功能已关闭"));
+            source.sendFailure(Component.translatable("swthb.back.disabled"));
             return 0;
         }
 
         // 检查是否有 back 点
         BackHandler.BackPoint bp = BackHandler.getBackPoint(player);
         if (bp == null) {
-            source.sendFailure(Component.translatableWithFallback(
-                    "swthb.back.none", "没有可返回的位置"));
+            source.sendFailure(Component.translatable("swthb.back.none"));
             return 0;
         }
 
@@ -54,8 +52,7 @@ public class BackCommand {
         ServerLevel targetLevel = source.getServer().getLevel(dimKey);
 
         if (targetLevel == null) {
-            source.sendFailure(Component.translatableWithFallback(
-                    "swthb.back.dimension_invalid", "目标维度数据异常，无法返回"));
+            source.sendFailure(Component.translatable("swthb.back.dimension_invalid"));
             return 0;
         }
 
@@ -73,12 +70,9 @@ public class BackCommand {
         // 显示返回来源类型（死亡地点 / 传送前位置）
         String typeKey = bp.type() == BackHandler.LocationType.DEATH
                 ? "swthb.back.type_death" : "swthb.back.type_teleport";
-        String typeFallback = bp.type() == BackHandler.LocationType.DEATH
-                ? "死亡地点" : "传送前位置";
 
         player.sendSystemMessage(
-                Component.translatableWithFallback("swthb.back.success",
-                        "已返回至 %s", Component.translatableWithFallback(typeKey, typeFallback))
+                Component.translatable("swthb.back.success", Component.translatable(typeKey))
                         .withStyle(ChatFormatting.GREEN)
         );
 

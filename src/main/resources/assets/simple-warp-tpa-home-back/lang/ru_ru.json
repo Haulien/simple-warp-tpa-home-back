@@ -58,5 +58,15 @@
   
   "swthb.dim.overworld": "Верхний мир",
   "swthb.dim.nether": "Нижний мир",
-  "swthb.dim.end": "Край"
+  "swthb.dim.end": "Край",
+
+  "swthb.tpa.unknown_player": "не в сети",
+  "swthb.log.initialized": "Simple Warp TPA Home Back инициализирован!",
+  "swthb.log.world_data_loaded": "Данные мира загружены",
+  "swthb.log.world_data_saved": "Данные мира сохранены",
+  "swthb.log.data_missing": "Данные мира не найдены, создаётся новый файл с настройками по умолчанию",
+  "swthb.log.data_loaded_from": "Данные мира загружены из %s",
+  "swthb.log.load_failed": "Не удалось загрузить данные мира, используются настройки по умолчанию: %s",
+  "swthb.log.no_data_file": "Путь к файлу данных не задан, сохранение невозможно",
+  "swthb.log.save_failed": "Не удалось сохранить данные мира: %s"
 }

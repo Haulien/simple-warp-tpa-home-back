@@ -58,5 +58,15 @@
   
   "swthb.dim.overworld": "主世界",
   "swthb.dim.nether": "下界",
-  "swthb.dim.end": "末地"
+  "swthb.dim.end": "末地",
+
+  "swthb.tpa.unknown_player": "该玩家",
+  "swthb.log.initialized": "Simple Warp TPA Home Back 已初始化！",
+  "swthb.log.world_data_loaded": "存档数据已加载",
+  "swthb.log.world_data_saved": "存档数据已保存",
+  "swthb.log.data_missing": "存档数据不存在，将使用默认设置创建新文件",
+  "swthb.log.data_loaded_from": "存档数据已加载: %s",
+  "swthb.log.load_failed": "加载存档数据失败，将使用默认设置: %s",
+  "swthb.log.no_data_file": "未设置数据文件路径，无法保存",
+  "swthb.log.save_failed": "保存存档数据失败: %s"
 }

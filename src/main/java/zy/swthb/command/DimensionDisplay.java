@@ -15,13 +15,13 @@ public final class DimensionDisplay {
     public static Component of(String worldId) {
         return switch (worldId) {
             case "minecraft:overworld" ->
-                    Component.translatableWithFallback("swthb.dim.overworld", "主世界")
+                    Component.translatable("swthb.dim.overworld")
                             .withStyle(ChatFormatting.YELLOW);
             case "minecraft:the_nether" ->
-                    Component.translatableWithFallback("swthb.dim.nether", "下界")
+                    Component.translatable("swthb.dim.nether")
                             .withStyle(ChatFormatting.YELLOW);
             case "minecraft:the_end" ->
-                    Component.translatableWithFallback("swthb.dim.end", "末地")
+                    Component.translatable("swthb.dim.end")
                             .withStyle(ChatFormatting.YELLOW);
             default -> {
                 String[] parts = worldId.split(":");

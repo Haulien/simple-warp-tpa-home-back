@@ -58,5 +58,15 @@
   
   "swthb.dim.overworld": "オーバーワールド",
   "swthb.dim.nether": "ネザー",
-  "swthb.dim.end": "エンド"
+  "swthb.dim.end": "エンド",
+
+  "swthb.tpa.unknown_player": "オフラインのプレイヤー",
+  "swthb.log.initialized": "Simple Warp TPA Home Back を初期化しました！",
+  "swthb.log.world_data_loaded": "ワールドデータを読み込みました",
+  "swthb.log.world_data_saved": "ワールドデータを保存しました",
+  "swthb.log.data_missing": "ワールドデータが見つかりません。デフォルト設定で新しいファイルを作成します",
+  "swthb.log.data_loaded_from": "ワールドデータを読み込みました: %s",
+  "swthb.log.load_failed": "ワールドデータの読み込みに失敗しました。デフォルト設定を使用します: %s",
+  "swthb.log.no_data_file": "データファイルのパスが未設定のため保存できません",
+  "swthb.log.save_failed": "ワールドデータの保存に失敗しました: %s"
 }

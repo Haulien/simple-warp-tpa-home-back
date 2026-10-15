@@ -58,5 +58,15 @@
   
   "swthb.dim.overworld": "Overworld",
   "swthb.dim.nether": "Nether",
-  "swthb.dim.end": "End"
+  "swthb.dim.end": "End",
+
+  "swthb.tpa.unknown_player": "an offline player",
+  "swthb.log.initialized": "Simple Warp TPA Home Back initialized!",
+  "swthb.log.world_data_loaded": "World data loaded",
+  "swthb.log.world_data_saved": "World data saved",
+  "swthb.log.data_missing": "No world data found, creating a new file with default settings",
+  "swthb.log.data_loaded_from": "World data loaded from %s",
+  "swthb.log.load_failed": "Failed to load world data, using default settings: %s",
+  "swthb.log.no_data_file": "No data file path set, unable to save",
+  "swthb.log.save_failed": "Failed to save world data: %s"
 }

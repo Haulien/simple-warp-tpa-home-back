@@ -58,5 +58,15 @@
   
   "swthb.dim.overworld": "ओवरवर्ल्ड",
   "swthb.dim.nether": "नेदर",
-  "swthb.dim.end": "एंड"
+  "swthb.dim.end": "एंड",
+
+  "swthb.tpa.unknown_player": "ऑफ़लाइन खिलाड़ी",
+  "swthb.log.initialized": "Simple Warp TPA Home Back प्रारंभ हो गया!",
+  "swthb.log.world_data_loaded": "विश्व डेटा लोड हो गया",
+  "swthb.log.world_data_saved": "विश्व डेटा सहेजा गया",
+  "swthb.log.data_missing": "विश्व डेटा नहीं मिला, डिफ़ॉल्ट सेटिंग्स के साथ नई फ़ाइल बनाई जा रही है",
+  "swthb.log.data_loaded_from": "विश्व डेटा %s से लोड हुआ",
+  "swthb.log.load_failed": "विश्व डेटा लोड करने में विफल, डिफ़ॉल्ट सेटिंग्स का उपयोग किया जा रहा है: %s",
+  "swthb.log.no_data_file": "डेटा फ़ाइल पथ सेट नहीं है, सहेजा नहीं जा सकता",
+  "swthb.log.save_failed": "विश्व डेटा सहेजने में विफल: %s"
 }

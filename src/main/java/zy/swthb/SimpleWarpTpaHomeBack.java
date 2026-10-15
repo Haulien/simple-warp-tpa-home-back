@@ -15,6 +15,7 @@ import zy.swthb.command.TeleportHandler;
 import zy.swthb.command.TpaCommand;
 import zy.swthb.command.WarpCommand;
 import zy.swthb.config.ModConfig;
+import zy.swthb.lang.ModLang;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 public class SimpleWarpTpaHomeBack implements ModInitializer {
@@ -36,7 +37,7 @@ public class SimpleWarpTpaHomeBack implements ModInitializer {
 		// 服务器启动时加载当前存档的数据
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
 			ModConfig.load(server);
-			LOGGER.info("存档数据已加载");
+			LOGGER.info(ModLang.server("swthb.log.world_data_loaded"));
 		});
 
 		// 注册 BackHandler 自动清理事件（玩家下线、服务器关闭时）
@@ -52,9 +53,9 @@ public class SimpleWarpTpaHomeBack implements ModInitializer {
 		ServerLifecycleEvents.SERVER_STOPPING.register(_ -> {
 			ModConfig.getInstance().save();
 			ModConfig.reset();
-			LOGGER.info("存档数据已保存");
+			LOGGER.info(ModLang.server("swthb.log.world_data_saved"));
 		});
 
-		LOGGER.info("Simple Warp TPA Home Back 已初始化！");
+		LOGGER.info(ModLang.server("swthb.log.initialized"));
 	}
 }

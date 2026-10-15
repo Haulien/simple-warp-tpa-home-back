@@ -58,5 +58,15 @@
   
   "swthb.dim.overworld": "Mundo Superior",
   "swthb.dim.nether": "Nether",
-  "swthb.dim.end": "End"
+  "swthb.dim.end": "End",
+
+  "swthb.tpa.unknown_player": "un jugador desconectado",
+  "swthb.log.initialized": "¡Simple Warp TPA Home Back inicializado!",
+  "swthb.log.world_data_loaded": "Datos del mundo cargados",
+  "swthb.log.world_data_saved": "Datos del mundo guardados",
+  "swthb.log.data_missing": "No se encontraron datos del mundo, se creará un archivo nuevo con la configuración predeterminada",
+  "swthb.log.data_loaded_from": "Datos del mundo cargados desde %s",
+  "swthb.log.load_failed": "Error al cargar los datos del mundo, se usará la configuración predeterminada: %s",
+  "swthb.log.no_data_file": "No se ha definido la ruta del archivo de datos, no se puede guardar",
+  "swthb.log.save_failed": "Error al guardar los datos del mundo: %s"
 }
