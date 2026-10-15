@@ -73,5 +73,6 @@
   "swthb.log.data_loaded_from": "存檔資料已載入: %s",
   "swthb.log.load_failed": "載入存檔資料失敗，將使用預設設定: %s",
   "swthb.log.no_data_file": "未設定資料檔案路徑，無法儲存",
-  "swthb.log.save_failed": "儲存存檔資料失敗: %s"
+  "swthb.log.save_failed": "儲存存檔資料失敗: %s",
+  "swthb.teleport.failed": "傳送失敗，請稍後再試"
 }

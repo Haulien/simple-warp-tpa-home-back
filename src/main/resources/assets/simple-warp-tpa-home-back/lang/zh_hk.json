@@ -73,5 +73,6 @@
   "swthb.log.no_data_file": "未設定資料檔案路徑，無法儲存",
   "swthb.log.save_failed": "儲存存檔資料失敗: %s",
   "swthb.config.teleport_effects_enabled": "已開啟傳送粒子效果",
-  "swthb.config.teleport_effects_disabled": "已關閉傳送粒子效果"
+  "swthb.config.teleport_effects_disabled": "已關閉傳送粒子效果",
+  "swthb.teleport.failed": "傳送失敗，請稍後再試"
 }

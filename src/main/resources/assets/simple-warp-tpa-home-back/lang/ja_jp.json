@@ -73,5 +73,6 @@
   "swthb.log.data_loaded_from": "ワールドデータを読み込みました: %s",
   "swthb.log.load_failed": "ワールドデータの読み込みに失敗しました。デフォルト設定を使用します: %s",
   "swthb.log.no_data_file": "データファイルのパスが未設定のため保存できません",
-  "swthb.log.save_failed": "ワールドデータの保存に失敗しました: %s"
+  "swthb.log.save_failed": "ワールドデータの保存に失敗しました: %s",
+  "swthb.teleport.failed": "テレポートに失敗しました。もう一度お試しください"
 }

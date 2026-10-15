@@ -73,5 +73,6 @@
   "swthb.log.data_loaded_from": "تم تحميل بيانات العالم من %s",
   "swthb.log.load_failed": "فشل تحميل بيانات العالم، سيتم استخدام الإعدادات الافتراضية: %s",
   "swthb.log.no_data_file": "لم يتم تعيين مسار ملف البيانات، تعذر الحفظ",
-  "swthb.log.save_failed": "فشل حفظ بيانات العالم: %s"
+  "swthb.log.save_failed": "فشل حفظ بيانات العالم: %s",
+  "swthb.teleport.failed": "فشل الانتقال، يرجى المحاولة مرة أخرى"
 }

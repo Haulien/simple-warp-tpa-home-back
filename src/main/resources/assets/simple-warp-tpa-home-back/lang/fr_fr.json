@@ -73,5 +73,6 @@
   "swthb.log.data_loaded_from": "Données du monde chargées depuis %s",
   "swthb.log.load_failed": "Échec du chargement des données du monde, utilisation des paramètres par défaut : %s",
   "swthb.log.no_data_file": "Chemin du fichier de données non défini, sauvegarde impossible",
-  "swthb.log.save_failed": "Échec de la sauvegarde des données du monde : %s"
+  "swthb.log.save_failed": "Échec de la sauvegarde des données du monde : %s",
+  "swthb.teleport.failed": "La téléportation a échoué, veuillez réessayer"
 }

@@ -73,5 +73,6 @@
   "swthb.log.data_loaded_from": "World data loaded from %s",
   "swthb.log.load_failed": "Failed to load world data, using default settings: %s",
   "swthb.log.no_data_file": "No data file path set, unable to save",
-  "swthb.log.save_failed": "Failed to save world data: %s"
+  "swthb.log.save_failed": "Failed to save world data: %s",
+  "swthb.teleport.failed": "Teleport failed, please try again"
 }

@@ -58,15 +58,15 @@ public class TpaCommand {
         // /tpa <玩家> — 向目标玩家发送传送请求
         dispatcher.register(Commands.literal("tpa")
                 .then(Commands.argument("target", EntityArgument.player())
-                        .executes(TpaCommand::executeTpa)));
+                        .executes(ServerThread.run(TpaCommand::executeTpa))));
 
         // /tpay — 接受最近一条传送请求
         dispatcher.register(Commands.literal("tpay")
-                .executes(TpaCommand::executeTpay));
+                .executes(ServerThread.run(TpaCommand::executeTpay)));
 
         // /tpan — 拒绝传送请求
         dispatcher.register(Commands.literal("tpan")
-                .executes(TpaCommand::executeTpan));
+                .executes(ServerThread.run(TpaCommand::executeTpan)));
     }
 
     /**

@@ -38,7 +38,7 @@ public class HomeCommand {
                 .executes(HomeCommand::executeDefaultHome)
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(HomeCommand::suggestHomes)
-                        .executes(HomeCommand::executeHome)));
+                        .executes(ServerThread.run(HomeCommand::executeHome))));
 
         // /defaulthome → show current default; /defaulthome <name> → set it
         dispatcher.register(Commands.literal("defaulthome")
@@ -49,19 +49,19 @@ public class HomeCommand {
 
         // /homes
         dispatcher.register(Commands.literal("homes")
-                .executes(HomeCommand::executeHomes));
+                .executes(ServerThread.run(HomeCommand::executeHomes)));
 
         // /sethome <名称>
         dispatcher.register(Commands.literal("sethome")
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(HomeCommand::suggestHomes)
-                        .executes(HomeCommand::executeSetHome)));
+                        .executes(ServerThread.run(HomeCommand::executeSetHome))));
 
         // /delhome <名称>
         dispatcher.register(Commands.literal("delhome")
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(HomeCommand::suggestHomes)
-                        .executes(HomeCommand::executeDelHome)));
+                        .executes(ServerThread.run(HomeCommand::executeDelHome))));
     }
 
     // ========== /home <name> ==========

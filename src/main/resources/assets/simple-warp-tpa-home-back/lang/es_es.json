@@ -73,5 +73,6 @@
   "swthb.log.data_loaded_from": "Datos del mundo cargados desde %s",
   "swthb.log.load_failed": "Error al cargar los datos del mundo, se usará la configuración predeterminada: %s",
   "swthb.log.no_data_file": "No se ha definido la ruta del archivo de datos, no se puede guardar",
-  "swthb.log.save_failed": "Error al guardar los datos del mundo: %s"
+  "swthb.log.save_failed": "Error al guardar los datos del mundo: %s",
+  "swthb.teleport.failed": "La teletransportación ha fallado, inténtalo de nuevo"
 }
