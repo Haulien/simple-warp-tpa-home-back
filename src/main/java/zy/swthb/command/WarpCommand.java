@@ -245,11 +245,7 @@ public class WarpCommand {
     // ========== TAB 补齐 ==========
 
     private static CompletableFuture<Suggestions> suggestWarps(CommandContext<CommandSourceStack> ctx, SuggestionsBuilder builder) {
-        ModConfig config = ModConfig.getInstance();
-        for (String name : config.getWarps().keySet()) {
-            builder.suggest(name);
-        }
-        return builder.buildFuture();
+        return Suggest.matching(ModConfig.getInstance().getWarps().keySet(), builder);
     }
 
 }

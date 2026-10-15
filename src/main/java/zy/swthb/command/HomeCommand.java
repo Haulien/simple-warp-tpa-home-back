@@ -242,11 +242,10 @@ public class HomeCommand {
         ServerPlayer player = ctx.getSource().getPlayer();
         if (player == null) return builder.buildFuture();
 
-        ModConfig config = ModConfig.getInstance();
-        for (ModConfig.HomeEntry home : config.getHomes(player.getUUID())) {
-            builder.suggest(home.getName());
-        }
-        return builder.buildFuture();
+        List<String> names = ModConfig.getInstance().getHomes(player.getUUID()).stream()
+                .map(ModConfig.HomeEntry::getName)
+                .toList();
+        return Suggest.matching(names, builder);
     }
 
 }
