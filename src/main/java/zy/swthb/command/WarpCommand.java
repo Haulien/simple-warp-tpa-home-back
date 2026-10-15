@@ -36,25 +36,25 @@ public class WarpCommand {
         dispatcher.register(Commands.literal("warp")
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(WarpCommand::suggestWarps)
-                        .executes(WarpCommand::executeWarp)));
+                        .executes(ServerThread.run(WarpCommand::executeWarp))));
 
         // /warps
         dispatcher.register(Commands.literal("warps")
-                .executes(WarpCommand::executeWarps));
+                .executes(ServerThread.run(WarpCommand::executeWarps)));
 
         // /setwarp <名称>（OP）
         dispatcher.register(Commands.literal("setwarp")
                 .requires(source -> Commands.LEVEL_GAMEMASTERS.check(source.permissions()))
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(WarpCommand::suggestWarps)
-                        .executes(WarpCommand::executeSetWarp)));
+                        .executes(ServerThread.run(WarpCommand::executeSetWarp))));
 
         // /delwarp <名称>（OP）
         dispatcher.register(Commands.literal("delwarp")
                 .requires(source -> Commands.LEVEL_GAMEMASTERS.check(source.permissions()))
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(WarpCommand::suggestWarps)
-                        .executes(WarpCommand::executeDelWarp)));
+                        .executes(ServerThread.run(WarpCommand::executeDelWarp))));
     }
 
     // ========== /warp <name> ==========

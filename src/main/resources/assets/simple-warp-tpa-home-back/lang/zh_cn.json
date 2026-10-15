@@ -58,5 +58,6 @@
   
   "swthb.dim.overworld": "主世界",
   "swthb.dim.nether": "下界",
-  "swthb.dim.end": "末地"
+  "swthb.dim.end": "末地",
+  "swthb.teleport.failed": "传送失败，请稍后重试"
 }

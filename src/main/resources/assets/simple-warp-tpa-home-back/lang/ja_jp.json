@@ -58,5 +58,6 @@
   
   "swthb.dim.overworld": "オーバーワールド",
   "swthb.dim.nether": "ネザー",
-  "swthb.dim.end": "エンド"
+  "swthb.dim.end": "エンド",
+  "swthb.teleport.failed": "テレポートに失敗しました。もう一度お試しください"
 }

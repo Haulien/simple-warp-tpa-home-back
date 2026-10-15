@@ -9,6 +9,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import zy.swthb.config.ModConfig;
 
 import java.util.Iterator;
@@ -25,6 +27,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * - 可在 data.json 中通过 teleportDelay 修改秒数
  */
 public class TeleportHandler {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger("simple-warp-tpa-home-back");
 
     private static final Map<UUID, TeleportTask> PENDING = new ConcurrentHashMap<>();
 
@@ -60,15 +64,7 @@ public class TeleportHandler {
         int delay = ModConfig.getInstance().getTeleportDelay();
         if (delay <= 0) {
             // 延迟为 0，直接传送
-            player.teleport(transition);
-            // 在目标位置播放到达音效和粒子
-            playArrivalEffects(
-                    transition.newLevel(),
-                    transition.position().x(),
-                    transition.position().y(),
-                    transition.position().z()
-            );
-            if (onSuccess != null) onSuccess.run();
+            performTeleport(player, transition, onSuccess);
             return;
         }
 
@@ -129,6 +125,37 @@ public class TeleportHandler {
     }
 
     /**
+     * 执行传送并播放到达效果。
+     * <p>
+     * 传送出错时记录日志并提示玩家，而不是让异常向上抛出：
+     * 倒计时传送在服务器 tick 中执行，未捕获的异常会导致服务器崩溃。
+     */
+    private static void performTeleport(ServerPlayer player,
+                                        TeleportTransition transition,
+                                        Runnable onSuccess) {
+        try {
+            player.teleport(transition);
+        } catch (Exception e) {
+            LOGGER.error("Failed to teleport {} to {} in {}",
+                    player.getName().getString(), transition.position(),
+                    transition.newLevel().dimension().identifier(), e);
+            player.sendSystemMessage(
+                    Component.translatableWithFallback("swthb.teleport.failed", "传送失败，请稍后重试")
+                            .withStyle(ChatFormatting.RED)
+            );
+            return;
+        }
+        // 在目标位置播放到达音效和粒子
+        playArrivalEffects(
+                transition.newLevel(),
+                transition.position().x(),
+                transition.position().y(),
+                transition.position().z()
+        );
+        if (onSuccess != null) onSuccess.run();
+    }
+
+    /**
      * 每个服务器 tick 调用一次，处理倒计时逻辑
      */
     public static void tick() {
@@ -161,16 +188,8 @@ public class TeleportHandler {
             if (remaining <= 0) {
                 // 倒计时结束，执行传送
                 it.remove();
-                task.player().teleport(task.transition());
-                // 在目标位置播放到达音效和粒子
-                playArrivalEffects(
-                        task.transition().newLevel(),
-                        task.transition().position().x(),
-                        task.transition().position().y(),
-                        task.transition().position().z()
-                );
                 task.player().sendOverlayMessage(Component.literal("")); // 清空动作栏
-                if (task.onSuccess() != null) task.onSuccess().run();
+                performTeleport(task.player(), task.transition(), task.onSuccess());
             } else {
                 // 每秒更新一次动作栏倒计时
                 if (remaining % 20 == 0) {

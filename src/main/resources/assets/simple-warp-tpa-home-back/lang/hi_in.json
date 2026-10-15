@@ -58,5 +58,6 @@
   
   "swthb.dim.overworld": "ओवरवर्ल्ड",
   "swthb.dim.nether": "नेदर",
-  "swthb.dim.end": "एंड"
+  "swthb.dim.end": "एंड",
+  "swthb.teleport.failed": "टेलीपोर्ट विफल रहा, कृपया पुनः प्रयास करें"
 }

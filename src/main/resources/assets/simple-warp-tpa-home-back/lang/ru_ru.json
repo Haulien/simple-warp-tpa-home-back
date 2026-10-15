@@ -58,5 +58,6 @@
   
   "swthb.dim.overworld": "Верхний мир",
   "swthb.dim.nether": "Нижний мир",
-  "swthb.dim.end": "Край"
+  "swthb.dim.end": "Край",
+  "swthb.teleport.failed": "Не удалось телепортироваться, попробуйте ещё раз"
 }

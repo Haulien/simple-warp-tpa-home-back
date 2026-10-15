@@ -25,7 +25,7 @@ public class BackCommand {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("back")
-                .executes(BackCommand::executeBack));
+                .executes(ServerThread.run(BackCommand::executeBack)));
     }
 
     private static int executeBack(CommandContext<CommandSourceStack> ctx) {
