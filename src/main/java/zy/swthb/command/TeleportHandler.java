@@ -139,7 +139,7 @@ public class TeleportHandler {
                     player.getName().getString(), transition.position(),
                     transition.newLevel().dimension().identifier(), e);
             player.sendSystemMessage(
-                    Component.translatableWithFallback("swthb.teleport.failed", "传送失败，请稍后重试")
+                    Component.translatable("swthb.teleport.failed")
                             .withStyle(ChatFormatting.RED)
             );
             return;

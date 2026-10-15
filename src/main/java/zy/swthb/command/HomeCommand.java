@@ -35,17 +35,17 @@ public class HomeCommand {
         // /home <名称>
         // /home (no name) → default home
         dispatcher.register(Commands.literal("home")
-                .executes(HomeCommand::executeDefaultHome)
+                .executes(ServerThread.run(HomeCommand::executeDefaultHome))
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(HomeCommand::suggestHomes)
                         .executes(ServerThread.run(HomeCommand::executeHome))));
 
         // /defaulthome → show current default; /defaulthome <name> → set it
         dispatcher.register(Commands.literal("defaulthome")
-                .executes(HomeCommand::executeShowDefaultHome)
+                .executes(ServerThread.run(HomeCommand::executeShowDefaultHome))
                 .then(Commands.argument("name", StringArgumentType.greedyString())
                         .suggests(HomeCommand::suggestHomes)
-                        .executes(HomeCommand::executeSetDefaultHome)));
+                        .executes(ServerThread.run(HomeCommand::executeSetDefaultHome))));
 
         // /homes
         dispatcher.register(Commands.literal("homes")
@@ -84,14 +84,12 @@ public class HomeCommand {
         if (name == null) {
             List<ModConfig.HomeEntry> homes = config.getHomes(player.getUUID());
             if (homes.isEmpty()) {
-                source.sendFailure(Component.translatableWithFallback("swthb.home.empty",
-                        "No homes set yet, use /sethome <name> to create one")
+                source.sendFailure(Component.translatable("swthb.home.empty")
                         .withStyle(ChatFormatting.RED));
                 return 0;
             }
             if (homes.size() > 1) {
-                source.sendFailure(Component.translatableWithFallback("swthb.home.no_default",
-                        "You have more than one home and no default. Use /defaulthome <name> to choose one, or /home <name>")
+                source.sendFailure(Component.translatable("swthb.home.no_default")
                         .withStyle(ChatFormatting.RED));
                 return 0;
             }
@@ -108,13 +106,11 @@ public class HomeCommand {
         ServerPlayer player = source.getPlayerOrException();
         String name = ModConfig.getInstance().getDefaultHome(player.getUUID());
         if (name == null) {
-            source.sendFailure(Component.translatableWithFallback("swthb.home.default_none",
-                    "No default home set. Use /defaulthome <name> to choose one")
+            source.sendFailure(Component.translatable("swthb.home.default_none")
                     .withStyle(ChatFormatting.RED));
             return 0;
         }
-        player.sendSystemMessage(Component.translatableWithFallback("swthb.home.default_current",
-                "Your default home is \"%s\"", name).withStyle(ChatFormatting.GREEN));
+        player.sendSystemMessage(Component.translatable("swthb.home.default_current", name).withStyle(ChatFormatting.GREEN));
         return 1;
     }
 
@@ -125,13 +121,11 @@ public class HomeCommand {
         ModConfig config = ModConfig.getInstance();
 
         if (!config.homeExists(player.getUUID(), name)) {
-            source.sendFailure(Component.translatableWithFallback("swthb.home.not_found",
-                    "Home named \"%s\" not found", name).withStyle(ChatFormatting.RED));
+            source.sendFailure(Component.translatable("swthb.home.not_found", name).withStyle(ChatFormatting.RED));
             return 0;
         }
         config.setDefaultHome(player.getUUID(), name);
-        player.sendSystemMessage(Component.translatableWithFallback("swthb.home.default_set",
-                "Default home set to \"%s\"", name).withStyle(ChatFormatting.GREEN));
+        player.sendSystemMessage(Component.translatable("swthb.home.default_set", name).withStyle(ChatFormatting.GREEN));
         return 1;
     }
 
@@ -227,7 +221,7 @@ public class HomeCommand {
 
             MutableComponent line = Component.literal("").append(nameComp);
             if (isDefault) {
-                line.append(Component.translatableWithFallback("swthb.home.default_tag", " ★ default").withStyle(ChatFormatting.YELLOW));
+                line.append(Component.translatable("swthb.home.default_tag").withStyle(ChatFormatting.YELLOW));
             }
             player.sendSystemMessage(line.append(infoComp));
         }
